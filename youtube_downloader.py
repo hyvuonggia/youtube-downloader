@@ -1,6 +1,5 @@
 import pytube
 
-DESTINATION_FOLDER = 'D:\\Gia Hy\\Videos'
 
 video_list = []
 
@@ -18,7 +17,7 @@ for x, video in enumerate(video_list):
         print(f"Downloading video {x + 1}...")
         v = pytube.YouTube(video)
         stream = v.streams.get_by_itag(22)
-        stream.download(DESTINATION_FOLDER)
+        stream.download()
         print("DONE \n")
     except AttributeError:
         print("FAILED (this video contains copyright sound)\n")
@@ -27,4 +26,4 @@ for x, video in enumerate(video_list):
     except ConnectionAbortedError:
         print("FAILED (internet interrupted)")
 
-input("=====FINISHED DOWNLOAD=====")
+# input("=====FINISHED DOWNLOAD=====")
